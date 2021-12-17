@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:02:36 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/16 13:49:34 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/17 15:46:39 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,25 @@
 */
 
 // ATTENTION TEJ LE ITOA
+/*
 int	main(int ac, char **av)
 {
-
 	t_list	*head;
 	t_list	*temp;
 	int		i;
-	long 	nb;
+	int 	nb;
+	int		*p;
 	
 	i =1;
 	nb = 0;
+	head = NULL;
 	while (i < ac)
 	{
-		//tej itoa
-		//on peut surement regler le pb de compilation, avec une variable temp
-		//pq zero pb avec des char ??
 		nb = atoi(av[i]);
 		ft_lstadd_back(&head, ft_lstnew(nb));
 		i++;
 	}
-	printf (ft_med(head));
+	printf ("list sort = %d\n", ft_already_sort(&head));
 	temp = head;
 	while (temp)
 	{
@@ -55,6 +54,7 @@ int	main(int ac, char **av)
 	//}
 	return (0);
 }
+*/
 
 /*
 int	main(void)
@@ -70,7 +70,7 @@ int	main(void)
 	head = ft_lstnew("0");
 	new1 = ft_lstnew("1");
 	new2 = ft_lstnew("2");
-	new3 = ft_lstnew("3");
+	new3 = ft_lstnew("8");
 	new4 = ft_lstnew("4");
 	new5 = ft_lstnew("5");
 	ft_lstadd_back(&head, new1);
@@ -79,6 +79,7 @@ int	main(void)
 	ft_lstadd_back(&head, new4);
 	ft_lstadd_back(&head, new5);
 
+	printf ("list sort = %d\n", ft_already_sort(&head));
 	t_list	*head2;
 	//t_list	*new1;
 	//t_list	*new2;
@@ -87,7 +88,7 @@ int	main(void)
 	//t_list	*new5;
 	//t_list	*temp;
 	
-	head2 = ft_lstnew("10");
+	//head2 = ft_lstnew("10");
 	//ft_lstadd_back(&head2, ft_lstnew("11"));
 	//ft_lstadd_back(&head2, ft_lstnew("12"));
 	//ft_lstadd_back(&head2, ft_lstnew("13"));
@@ -100,7 +101,8 @@ int	main(void)
 	//	printf("%s\n", (char *)temp->content);
 	//	temp = temp->next;
 	//}
-	ft_pa(&head, &head2);
+	//head2 = NULL;
+	ft_pb(&head, &head2);
 	printf("liste a\n");
 	temp = head;
 	while (temp)
@@ -118,6 +120,42 @@ int	main(void)
 	return (0);
 }
 */
+
+int	main(void)
+{
+	t_list	*head_a;
+	t_list	*head_b = NULL;
+	t_list	*new;
+	int a = 1;
+	int b = 5;
+	int c = 4;
+	int d = 10;
+	int	e = 8;
+	void *p = &a;
+
+	head_a = ft_lstnew(p);
+	p = &b;
+	new = ft_lstnew(p);
+	ft_lstadd_back(&head_a, new);
+	p = &c;
+	new = ft_lstnew(p);
+	ft_lstadd_back(&head_a, new);
+	p = &d;
+	new = ft_lstnew(p);
+	ft_lstadd_back(&head_a, new);
+	p = &e;
+	new = ft_lstnew(p);
+	ft_lstadd_back(&head_a, new);
+	
+	ft_sort_five(&head_a, &head_b);
+	printf ("list sort = %d\n", ft_already_sort(&head_a));
+	while (head_a)
+	{
+		printf(" %d\n ", *(int *)(head_a->content));
+		head_a = head_a->next;
+	}
+	return (0);
+}
 
 /*
 	1) trouver le plus petit element et lassigner en tant que pivot

@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/16 13:49:04 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/17 15:44:20 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstlast(t_list *lst);
-long long	ft_med(t_list *head);
+int	ft_med_position(t_list *head);
 
 
 
@@ -44,9 +44,20 @@ void	ft_sa(t_list **head);
 void	ft_ra(t_list **head);
 void	ft_rra(t_list **head);
 void	ft_pa(t_list **head_a, t_list **head_b);
+void	ft_pb(t_list **head_a, t_list **head_b);
 void	ft_ss(t_list **head_a, t_list **head_b);
 void	ft_rr(t_list **head_a, t_list **head_b);
 void	ft_rrr(t_list **head_a, t_list **head_b);
 
+/*
+		check function
+*/
+int	ft_already_sort(t_list **head);
+
+
+/*
+		Sort function
+*/
+void	ft_sort_five(t_list **head_a, t_list **head_b);
 
 #endif
