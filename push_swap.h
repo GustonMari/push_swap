@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 16:20:08 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/20 17:19:14 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_list
 typedef struct d_list
 {
 	int	size;
-	struct d_list *p_head;
-	struct d_list *p_tail;
+	struct s_list *first;
+	struct s_list *last;
 }				D_list;
 
 /*
@@ -47,6 +47,7 @@ int ft_strcmp(char *s1, char *s2);
 int	ft_create_new(int ac, char **av, t_list **head);
 long long	ft_atoi(const char *str);
 void	ft_free(int nb);
+
 
 /*
 	mouvement function

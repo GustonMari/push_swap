@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:40:45 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 16:16:55 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/20 17:28:52 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_med_position(t_list **head)
 	size = ft_lstsize(*head);
 	tab = malloc(sizeof(int) * size);
 	if (!tab)
-		return (NULL);
+		return (0);
 	while (i < size)
 	{
 		tab[i] = (*head)->content;
@@ -44,12 +44,7 @@ int	ft_med_position(t_list **head)
 	// faire quick sort
 	ft_quick_sort(tab, 0, size -1);
 	i = 0;
-	//while (i < size)
-	//{
-	//	printf("%d\n", tab[i]);
-	//	i++;
-	//}
-	printf("%d\n", ft_med(tab, size));
+	mid = ft_med(tab, size);
 	free(tab);
 	return (mid);
 }
@@ -97,5 +92,5 @@ void	ft_quick_sort(int *tab, int begin, int end)
 	nb = ft_partition(tab, begin, end);
 	ft_quick_sort(tab, begin, nb - 1);
 	ft_quick_sort(tab, nb + 1, end);
-	//return (mid);
+
 }

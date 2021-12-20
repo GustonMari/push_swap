@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:02:36 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 16:03:05 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/20 17:37:39 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,16 @@ int	main(int ac, char **av)
 	temp = head_a;
 	mid = ft_med_position(&temp);
 	free(temp);
-	
-	//while (head_a)
-	//{
-	//	printf("%d\n", (head_a->content));
-	//	head_a = head_a->next;
-	//}
+	while (head_a->next)
+	{
+		//printf("%d\n", (head_a->content));
+		head_a = head_a->next;
+	}
+	while (head_a)
+	{
+		printf("%d\n", (head_a->content));
+		head_a = head_a->prev;
+	}
 	ft_lstclear_modif(&head_a);
 	return (0);
 }
