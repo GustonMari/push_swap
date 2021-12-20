@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:02:36 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/17 15:46:39 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/20 10:11:57 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,6 @@
 /*
 		-pb et pa ne marche pas lorsque leurs liste sont egal a 1 element 
 		alors la liste est dupp
-*/
-
-// ATTENTION TEJ LE ITOA
-/*
-int	main(int ac, char **av)
-{
-	t_list	*head;
-	t_list	*temp;
-	int		i;
-	int 	nb;
-	int		*p;
-	
-	i =1;
-	nb = 0;
-	head = NULL;
-	while (i < ac)
-	{
-		nb = atoi(av[i]);
-		ft_lstadd_back(&head, ft_lstnew(nb));
-		i++;
-	}
-	printf ("list sort = %d\n", ft_already_sort(&head));
-	temp = head;
-	while (temp)
-	{
-		printf("%d\n", (int)temp->content);
-		temp = temp->next;
-	}
-	//printf("liste b\n");
-	//temp = head2;
-	//while (temp)
-	//{
-	//	printf("%s\n", (char *)temp->content);
-	//	temp = temp->next;
-	//}
-	return (0);
-}
 */
 
 /*
@@ -121,50 +84,39 @@ int	main(void)
 }
 */
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	t_list	*head_a;
-	t_list	*head_b = NULL;
-	t_list	*new;
-	int a = 1;
-	int b = 5;
-	int c = 4;
-	int d = 10;
-	int	e = 8;
-	void *p = &a;
-
-	head_a = ft_lstnew(p);
-	p = &b;
-	new = ft_lstnew(p);
-	ft_lstadd_back(&head_a, new);
-	p = &c;
-	new = ft_lstnew(p);
-	ft_lstadd_back(&head_a, new);
-	p = &d;
-	new = ft_lstnew(p);
-	ft_lstadd_back(&head_a, new);
-	p = &e;
-	new = ft_lstnew(p);
-	ft_lstadd_back(&head_a, new);
+	t_list	*head_a = NULL;
 	
-	ft_sort_five(&head_a, &head_b);
-	printf ("list sort = %d\n", ft_already_sort(&head_a));
+	if (ac == 1 || !ft_check(av))
+	{
+		write (2,"Error\n", 6);
+		return (0);
+	}
+	ft_create_new(ac, av, &head_a);
+	if (!ft_already_sort(&head_a))
+	{
+		write (2,"Error\n", 6);
+		return (0);
+	}
 	while (head_a)
 	{
-		printf(" %d\n ", *(int *)(head_a->content));
+		printf("%d\n", (head_a->content));
 		head_a = head_a->next;
 	}
 	return (0);
 }
 
-/*
-	1) trouver le plus petit element et lassigner en tant que pivot
-	2) Rearangement
-	-si un element est plus grand que le pivot on y place un pointeur temp
-	-des que lon tombe sur un chiffre inferrieur au pivot on swap lelement et le pointeur temp 
-	=> pour optimiser le temps de triage on peut definir une valeur max que l'on redefini a chaque passage
-	-apres un swap on repars du debut de la list
-	- on sarrete lorsquon arrive a l'avant dernier element et l'on swap temp avec le pivot
-	3) on replace le pivot sur l'extreme gauche et on repete letape 2
+void	ft_create_new(int ac, char **av, t_list **head)
+{
+	int	i;
+	int	nb;
 	
-*/
+	i = 1;
+	while (i < ac)
+	{
+		nb = ft_atoi(av[i]);
+		ft_lstadd_back(head, ft_lstnew_modif(nb));
+		i++;
+	}
+}

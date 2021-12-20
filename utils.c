@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 12:33:16 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/16 07:01:27 by gmary            ###   ########.fr       */
+/*   Created: 2021/12/20 09:37:06 by gmary             #+#    #+#             */
+/*   Updated: 2021/12/20 09:39:42 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int ft_strcmp(char *s1, char *s2)
 {
-	t_list	*temp;
+	int	i;
 
-	while ((*lst))
-	{
-		temp = *lst;
-		(*lst) = (*lst)->next;
-		del(temp->content);
-		free(temp);
-	}
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
