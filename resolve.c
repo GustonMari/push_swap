@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   resolve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 10:37:20 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 16:14:38 by gmary            ###   ########.fr       */
+/*   Created: 2021/12/20 16:01:01 by gmary             #+#    #+#             */
+/*   Updated: 2021/12/20 16:09:13 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_resolve_a(t_list	**head_a, t_list **head_b)
 {
-	t_list	*temp;
+	int	mid;
 
-	if (!*alst)
+	// surement passer par une valeur temp pour leak avec med_position
+	mid = ft_med_position(head_a);
+	// je pense que ma condition n'est pas bonne pour la boucle je devrais plustpot avoir un if pour stopper un recursion
+	while (ft_already_sort(head_a))
 	{
-		*alst = new;
-		return ;
+		while ((*head_a)->content < mid)
+			ft_pb(head_a, head_b);
+		whi
 	}
-	temp = *alst;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new;
 }
-/*
-void	ft_lstadd_back(t_list **alst, t_list *new)
-{
-	t_list	*temp;
-
-	if (!*alst)
-	{
-		*alst = new;
-		return ;
-	}
-	temp = *alst;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new;
-}
-*/

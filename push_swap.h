@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 10:03:29 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/20 16:20:08 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,22 @@ typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
+	struct s_list	*prev;
 }				t_list;
+
+typedef struct d_list
+{
+	int	size;
+	struct d_list *p_head;
+	struct d_list *p_tail;
+}				D_list;
 
 /*
 	 libft  && utils
 */
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstadd_front(t_list **alst, t_list *new);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstclear_modif(t_list **lst);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 int	ft_lstsize(t_list *lst);
@@ -35,13 +43,10 @@ int	ft_isdigit(int c);
 t_list	*ft_lstnew_modif(int	content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstlast(t_list *lst);
-int	ft_med_position(t_list *head);
 int ft_strcmp(char *s1, char *s2);
-void	ft_create_new(int ac, char **av, t_list **head);
-int	ft_atoi(const char *str);
-
-
-
+int	ft_create_new(int ac, char **av, t_list **head);
+long long	ft_atoi(const char *str);
+void	ft_free(int nb);
 
 /*
 	mouvement function
@@ -62,13 +67,14 @@ int	ft_already_sort(t_list **head);
 int	ft_check(char **av);
 int	ft_check_num(char **av);
 int	ft_check_double(char **av);
-
-
-
+int	ft_check_limits(long long nb);
 
 /*
 		Sort function
 */
 void	ft_sort_five(t_list **head_a, t_list **head_b);
+int	ft_med_position(t_list **head);
+void	ft_swap_tab(int *tab, int a, int b);
+void	ft_quick_sort(int *tab, int begin, int end);
 
 #endif
