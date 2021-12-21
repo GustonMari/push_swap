@@ -6,12 +6,11 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 08:04:58 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/16 09:01:08 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/21 13:32:40 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	ft_rra(t_list **head)
 {
@@ -35,3 +34,25 @@ void	ft_rra(t_list **head)
 	before_last->next = NULL;
 	*head = temp;
 }
+
+/*
+void	ft_rra(t_list **head)
+{
+	t_list	*tmp;
+	t_list	*swap;
+
+	if ((*head) && (*head)->next)
+	{
+		swap = (*head);
+		while ((*head)->next->next)
+		{
+			(*head) = (*head)->next;
+		}
+		tmp = (*head)->next;
+		(*head)->next = NULL;
+		(*head) = swap;
+		tmp->next = (*head);
+		(*head) = tmp;
+	}
+}
+*/

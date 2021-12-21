@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 17:19:14 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/21 10:46:14 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
-	struct s_list	*prev;
+	//struct s_list	*prev;
 }				t_list;
 
 typedef struct d_list
@@ -77,5 +77,7 @@ void	ft_sort_five(t_list **head_a, t_list **head_b);
 int	ft_med_position(t_list **head);
 void	ft_swap_tab(int *tab, int a, int b);
 void	ft_quick_sort(int *tab, int begin, int end);
+void	ft_resolve_a(t_list	**head_a, t_list **head_b);
+
 
 #endif

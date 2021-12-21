@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:37:20 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 17:26:52 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/21 10:46:08 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 
 	if (!*alst)
 	{
-		new->prev = NULL;
+		//new->prev = NULL;
 		*alst = new;
 		return ;
 	}
@@ -27,7 +27,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 	while (temp->next)
 		temp = temp->next;
 	temp->next = new;
-	new->prev = temp;
+	//new->prev = temp;
 }
 
 /*
