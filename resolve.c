@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:01:01 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 10:47:26 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 10:53:54 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	ft_resolve_a(t_list	**head_a, t_list **head_b, int chunk)
 	ft_resolve_a(head_a, head_b, chunk + 1);
 }
 
-void	ft_resolve_connect(t_list	**head_a, t_list **head_b, int chunk)
-{
-	if (ft_chunk_size(chunk) == 1)
-		pa(head_a, head_b);
-	if (ft_chunk_size(chunk) == 2)
-		//ft_solve_2
-	
-}
+//void	ft_resolve_connect(t_list	**head_a, t_list **head_b, int chunk)
+//{
+//	if (ft_chunk_size(chunk) == 1)
+//		pa(head_a, head_b);
+//	if (ft_chunk_size(chunk) == 2)
+//		//ft_solve_2
+//	
+//}
 
 //void	ft_resolve_b(t_list	**head_a, t_list **head_b, int chunk)
 //{
