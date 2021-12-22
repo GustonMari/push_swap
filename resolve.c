@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:01:01 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 17:02:09 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 17:18:31 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,17 @@ void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
 	mid = ft_med_position_chunk(&temp, chunk);
 	//free(temp);
 	printf("mid			%d\n", mid);
-	//while (((*head_b)->content >= mid) && ((*head_b)->chunk_index == chunk))
-	//	ft_pa(head_a, head_b, chunk);
-	//while (ft_lstlast(*head_b)->content < mid)
+	while (((*head_b)->content >= mid) && ((*head_b)->chunk_index == chunk))
+		ft_pa(head_a, head_b, chunk);
+	
+	//faire un if pour savoir si il reste des elements dun chunk a trie 
+	//et faire recursion dans ce cas chunk et pas chunk - 1;
+	
+	//while (ft_lstlast(*head_b)->content < mid && (ft_lstlast(*head_b)->chunk_index == chunk))
 	//{
 	//	//on utilise rra car utilisable pour a et b
 	//	ft_rra(head_b);
-	//	ft_pa(head_a, head_b);
+	//	ft_pa(head_a, head_b, chunk);
 	//}
 	//while (ft_all_below_mid(*head_b, mid) != 1)
 	//{
