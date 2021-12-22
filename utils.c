@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:37:06 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 17:14:23 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 16:50:59 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	ft_create_new(int ac, char **av, t_list **head)
 {
 	int		i;
 	long	nb;
-	
+	t_list	*temp;
+
 	i = 1;
 	while (i < ac)
 	{
@@ -41,7 +42,8 @@ int	ft_create_new(int ac, char **av, t_list **head)
 			ft_lstclear_modif(head);
 			return (0);
 		}
-		ft_lstadd_back(head, ft_lstnew_modif((int)nb));
+		temp = ft_lstnew_modif((int)nb);
+		ft_lstadd_back(head, temp);
 		i++;
 	}
 	return (1);

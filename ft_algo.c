@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:40:45 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 10:37:22 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 16:17:21 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,36 @@ int	ft_med_position(t_list **head)
 		i++;
 	}
 	// faire quick sort
+	ft_quick_sort(tab, 0, size -1);
+	i = 0;
+	mid = ft_med(tab, size);
+	free(tab);
+	return (mid);
+}
+
+int	ft_med_position_chunk(t_list **head, int chunk)
+{
+	int	size;
+	int	*tab;
+	int	i;
+	int	mid;
+	t_list	*temp = NULL;
+
+	temp = *head;
+	i =0;
+	//size = ft_lstsize(*head);
+	size = ft_chunk_size(temp, chunk);
+	size = 3;
+	tab = malloc(sizeof(int) * size);
+	if (!tab)
+		return (0);
+	temp = *head;
+	while (i < size)
+	{
+		tab[i] = temp->content;
+		temp = temp->next;
+		i++;
+	}
 	ft_quick_sort(tab, 0, size -1);
 	i = 0;
 	mid = ft_med(tab, size);

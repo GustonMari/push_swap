@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 12:49:49 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 16:51:45 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,11 @@ int	ft_check_limits(long long nb);
 */
 void	ft_sort_five(t_list **head_a, t_list **head_b);
 int	ft_med_position(t_list **head);
+int	ft_med_position_chunk(t_list **head, int chunk);
 void	ft_swap_tab(int *tab, int a, int b);
 void	ft_quick_sort(int *tab, int begin, int end);
 void	ft_resolve_a(t_list	**head_a, t_list **head_b, int chunk);
-void	ft_resolve_b(t_list	**head_a, t_list **head_b);
+void	ft_resolve_b(t_list	**head_a, t_list **head_b, int chunk);
 int	ft_all_below_mid(t_list *head, int mid);
 int	ft_check_chunk_max(t_list *head);
 int	ft_chunk_size(t_list *lst, int chunk);
