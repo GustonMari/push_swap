@@ -6,12 +6,11 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 08:57:28 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/17 11:12:42 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 10:52:11 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 /* ne marche pas lorsque la liste b est seulement dun content */
 
@@ -30,10 +29,10 @@ void	ft_pa(t_list **head_a, t_list **head_b)
 	}
 	swap = (*head_b);
 	(swap)->next = *head_a;
+		// voir si tej chunk ligne
+	swap->chunk_index = chunk;
 	*head_a = swap;
 	(*head_b) = NULL;
-	//printf("size %d\n", ft_lstsize(*head_b));
-	//printf("content %s\n", (char *)(*head_b)->content);
 	if (ft_lstsize(*head_b) <= 1)
 		*head_b = temp;
 }

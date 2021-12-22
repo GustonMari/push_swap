@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:53:32 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/21 10:46:28 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 09:18:22 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_list	*ft_lstnew_modif(int	content)
 	if (!new)
 		return (NULL);
 	new->content = content;
+	//voir si tej chunk ligne
+	new->chunk_index = 0;
 	new->next = NULL;
 	//new->prev = NULL;
 	return (new);
