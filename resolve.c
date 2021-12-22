@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:01:01 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 10:53:54 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 13:26:13 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ void	ft_resolve_a(t_list	**head_a, t_list **head_b, int chunk)
 //void	ft_resolve_connect(t_list	**head_a, t_list **head_b, int chunk)
 //{
 //	if (ft_chunk_size(chunk) == 1)
-//		pa(head_a, head_b);
+//		pa(head_a, head_b, chunk);
 //	if (ft_chunk_size(chunk) == 2)
-//		//ft_solve_2
-//	
+//	{	ft_solve_two(head_a);
+//		// et 2 pa pour envoyer le res
+//	}
+//	// faire une fonction pour 5 aussi ??
+//	ft_resolve_b(head_a, head_b, chunk);
 //}
 
 //void	ft_resolve_b(t_list	**head_a, t_list **head_b, int chunk)
@@ -59,6 +62,11 @@ void	ft_resolve_a(t_list	**head_a, t_list **head_b, int chunk)
 //	temp = *head_b;
 //	mid = ft_med_position(&temp);
 //	free(temp);
+//	if (ft_chunk_size(chunk) == 1)
+//	{
+//		ft_pa(head_a, head_b, chunk);
+//		ft_resolve_b(head_a, head_b, chunk - 1);
+//	}
 //	if (ft_lstsize(*head_b) == 0)
 //		return ;
 //	while ((*head_b)->content >= mid) && ((*head_b)->chunk_index == chunk))

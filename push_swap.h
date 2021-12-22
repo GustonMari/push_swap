@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 10:53:36 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/22 12:49:49 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ void	ft_resolve_b(t_list	**head_a, t_list **head_b);
 int	ft_all_below_mid(t_list *head, int mid);
 int	ft_check_chunk_max(t_list *head);
 int	ft_chunk_size(t_list *lst, int chunk);
+void	ft_solve_two(t_list **head);
+void	ft_solve_three(t_list **head);
+
 
 
 
