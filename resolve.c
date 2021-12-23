@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:01:01 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/23 14:09:20 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 15:37:58 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
 		return;
 	if (ft_lstsize(*head_b) == 1)
 	{	
-		ft_pa(head_a, head_b, chunk);
+		ft_pa(head_a, head_b, chunk+3);
 		return ;
 	}
 	if (ft_resolve_connect(head_a, head_b, chunk) == 1)
@@ -80,7 +80,7 @@ void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
 	while (ft_all_above_mid(*head_b, mid, chunk) == 0)
 	{
 		if ((*head_b)->content >= mid && (*head_b)->chunk_index == chunk)
-			ft_pa(head_a, head_b, chunk);
+			ft_pa(head_a, head_b, chunk+3);
 		if ((*head_b)->content < mid && (*head_b)->chunk_index == chunk)
 		{
 			ft_ra(head_b);
