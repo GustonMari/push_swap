@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:01:01 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/23 15:37:58 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 17:08:35 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ void ft_resolve_a(t_list **head_a, t_list **head_b, int chunk)
 	// surement passer par une valeur temp pour leak avec med_position
 	temp = *head_a;
 	mid = ft_med_position(&temp);
-	//free(temp);
+	//inclure la fonction pour la mediane du chunk
+	//if (ft_already_sort_chunk(head_a, chunk)) => a implemente pour savoir si chunk deja trie ou pas
+	//{
+	//	
+	//}
 	if (ft_lstsize(*head_a) == 2)
 		return;
 	while ((*head_a)->content < mid)
@@ -70,7 +74,7 @@ void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
 		return;
 	if (ft_lstsize(*head_b) == 1)
 	{	
-		ft_pa(head_a, head_b, chunk+3);
+		ft_pa(head_a, head_b, chunk);
 		return ;
 	}
 	if (ft_resolve_connect(head_a, head_b, chunk) == 1)
@@ -80,7 +84,7 @@ void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
 	while (ft_all_above_mid(*head_b, mid, chunk) == 0)
 	{
 		if ((*head_b)->content >= mid && (*head_b)->chunk_index == chunk)
-			ft_pa(head_a, head_b, chunk+3);
+			ft_pa(head_a, head_b, chunk);
 		if ((*head_b)->content < mid && (*head_b)->chunk_index == chunk)
 		{
 			ft_ra(head_b);
@@ -195,6 +199,7 @@ int ft_check_chunk_max(t_list *head)
 	int max;
 
 	max = 0;
+	max = head->chunk_index;
 	while (head)
 	{
 		if (head->chunk_index >= max)

@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:40:45 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 16:17:21 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 17:03:59 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	ft_med_position_chunk(t_list **head, int chunk)
 	i =0;
 	//size = ft_lstsize(*head);
 	size = ft_chunk_size(temp, chunk);
-	size = 3;
 	tab = malloc(sizeof(int) * size);
 	if (!tab)
 		return (0);

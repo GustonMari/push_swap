@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 12:13:00 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/23 10:07:21 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 16:00:40 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_solve_two(t_list **head)
 	{
 		ft_sa(head);
 	}
+	(*head)->chunk_index = -1;
+	(*head)->next->chunk_index = -1;
 }
 
 void	ft_solve_two_reverse(t_list **head)

@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/23 11:09:46 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 16:47:50 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void	ft_solve_three(t_list **head);
 void	ft_solve_two_reverse(t_list **head);
 int ft_all_above_mid(t_list *head, int mid, int chunk);
 int	ft_resolve_connect(t_list **head_a, t_list **head_b, int chunk);
+int	ft_already_sort_chunk(t_list **head, int chunk);
 
 #endif

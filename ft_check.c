@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:15:00 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/20 11:25:54 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 16:53:26 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,31 @@ int	ft_already_sort(t_list **head)
 	min = *head;
 	max = max->next;
 	while (max)
+	{
+		if (min->content > max->content)
+		{	
+			return (1);
+		}
+		min = min->next;
+		max = max->next;
+	}
+	return (0);
+}
+
+int	ft_already_sort_chunk(t_list **head, int chunk)
+{
+	t_list	*max;
+	t_list	*min;
+
+	max = *head;
+	min = *head;
+	max = max->next;
+	while (max && max->chunk_index != chunk)
+	{
+		min = min->next;
+		max = max->next;
+	}
+	while (max && max->chunk_index == chunk)
 	{
 		if (min->content > max->content)
 		{	
