@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:02:36 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 16:59:21 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 15:29:10 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	t_list	*head_a = NULL;
 	t_list	*head_b = NULL;
 	t_list	*temp1;
-	t_list	*temp2;
+	//t_list	*temp2;
 
 	if (ac == 1 || !ft_check(av))
 	{
@@ -42,14 +42,15 @@ int	main(int ac, char **av)
 	//temp = head_a;
 	//mid = ft_med_position(&temp);
 	//free(temp);
-	
-	ft_resolve_a(&head_a, &head_b, 0);
-	
-	//ft_solve_two(head_a);
-	ft_resolve_b(&head_a, &head_b, ft_check_chunk_max(head_b));
+	//while (ft_already_sort(&head_a))
+	//{
+		ft_resolve_a(&head_a, &head_b, 0);
+		ft_solve_two(&head_a);
+		ft_resolve_b(&head_a, &head_b, ft_check_chunk_max(head_b));
+	//}
 	//printf("size chunk %d\n", ft_chunk_size(head_b, ft_check_chunk_max(head_b) - 1));
 	temp1 = head_a;
-	temp2 = head_b;
+	//temp2 = head_b;
 	printf("liste a\n");
 	while (head_a)
 	{
@@ -63,6 +64,6 @@ int	main(int ac, char **av)
 		head_b = head_b->next;
 	}
 	ft_lstclear_modif(&temp1);
-	ft_lstclear_modif(&temp2);
+	//ft_lstclear_modif(&temp2);
 	return (0);
 }

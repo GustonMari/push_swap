@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 16:51:45 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 11:09:46 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,13 @@ void	ft_swap_tab(int *tab, int a, int b);
 void	ft_quick_sort(int *tab, int begin, int end);
 void	ft_resolve_a(t_list	**head_a, t_list **head_b, int chunk);
 void	ft_resolve_b(t_list	**head_a, t_list **head_b, int chunk);
-int	ft_all_below_mid(t_list *head, int mid);
+int ft_all_below_mid(t_list *head, int mid, int chunk);
 int	ft_check_chunk_max(t_list *head);
 int	ft_chunk_size(t_list *lst, int chunk);
 void	ft_solve_two(t_list **head);
 void	ft_solve_three(t_list **head);
-
-
-
-
+void	ft_solve_two_reverse(t_list **head);
+int ft_all_above_mid(t_list *head, int mid, int chunk);
+int	ft_resolve_connect(t_list **head_a, t_list **head_b, int chunk);
 
 #endif

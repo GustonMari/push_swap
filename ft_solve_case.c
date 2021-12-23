@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 12:13:00 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 13:13:07 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 10:07:21 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 void	ft_solve_two(t_list **head)
 {
 	if ((*head)->content > (*head)->next->content)
+	{
+		ft_sa(head);
+	}
+}
+
+void	ft_solve_two_reverse(t_list **head)
+{
+	if ((*head)->content < (*head)->next->content)
 	{
 		ft_sa(head);
 	}

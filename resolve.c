@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:01:01 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 17:18:31 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/23 14:09:20 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void ft_resolve_a(t_list **head_a, t_list **head_b, int chunk)
 		ft_rra(head_a);
 		ft_pb(head_a, head_b, chunk);
 	}
-	while (ft_all_below_mid(*head_a, mid) != 1)
+	while (ft_all_below_mid(*head_a, mid, chunk) != 1)
 	{
 		while ((*head_a)->content >= mid)
 			ft_ra(head_a);
@@ -42,18 +42,82 @@ void ft_resolve_a(t_list **head_a, t_list **head_b, int chunk)
 	ft_resolve_a(head_a, head_b, chunk + 1);
 }
 
-//void	ft_resolve_connect(t_list	**head_a, t_list **head_b, int chunk)
-//{
-//	if (ft_chunk_size(chunk) == 1)
-//		pa(head_a, head_b, chunk);
-//	if (ft_chunk_size(chunk) == 2)
-//	{	ft_solve_two(head_a);
-//		// et 2 pa pour envoyer le res
-//	}
-//	// faire une fonction pour 5 aussi ??
-//	ft_resolve_b(head_a, head_b, chunk);
-//}
+int	ft_resolve_connect(t_list **head_a, t_list **head_b, int chunk)
+{
+	if (ft_chunk_size(*head_b, chunk) == 1)
+	{
+		ft_pa(head_a, head_b, chunk);
+		return (1);
+	}
+	if (ft_chunk_size(*head_b, chunk) == 2)
+	{
+		ft_solve_two_reverse(head_b);
+		ft_pa(head_a, head_b, chunk);
+		ft_pa(head_a, head_b, chunk);
+		return (1);
+	}
+	return (0);
+}
 
+void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
+{
+	int		mid;
+	t_list	*temp;
+	int		count;
+	
+	count = 0;
+	if (ft_lstsize(*head_b) == 0 || chunk < 0)
+		return;
+	if (ft_lstsize(*head_b) == 1)
+	{	
+		ft_pa(head_a, head_b, chunk);
+		return ;
+	}
+	if (ft_resolve_connect(head_a, head_b, chunk) == 1)
+		chunk--;
+	temp = *head_b;
+	mid = ft_med_position_chunk(&temp,chunk);
+	while (ft_all_above_mid(*head_b, mid, chunk) == 0)
+	{
+		if ((*head_b)->content >= mid && (*head_b)->chunk_index == chunk)
+			ft_pa(head_a, head_b, chunk);
+		if ((*head_b)->content < mid && (*head_b)->chunk_index == chunk)
+		{
+			ft_ra(head_b);
+			count++;
+		}
+	}
+	if (ft_chunk_size(*head_b, chunk) > 0)
+	{
+		while (count > 0 && ft_lstsize(*head_b) != 1)
+		{
+			ft_rra(head_b);
+			count--;
+		}
+			ft_resolve_b(head_a, head_b, chunk);
+	}
+	//while ((*head_b)->content >= mid && (*head_b)->chunk_index == chunk)
+	//	ft_pa(head_a, head_b, chunk);
+	//while ((*head_b)->content < mid && (*head_b)->chunk_index == chunk)
+	//{
+	//	ft_ra(head_b);
+	//	count++;
+	//}
+	//// siil ne reste plus rien au dessus du mid alors et que chunk pas vid on reverse ATTEMTION PAS SUR POUR LA TAILLE DE SIZE PLUSTOT 0 OU 2 ???
+	//if (ft_all_above_mid(*head_b, mid, chunk) == 1 && ft_chunk_size(*head_b, chunk) > 0)
+	//{
+	//	while (count > 0)
+	//	{
+	//		ft_rra(head_b);
+	//		count--;
+	//	}
+	//	ft_resolve_a(head_a, head_b, chunk);
+	//}
+	//else
+	//	ft_resolve_a(head_a, head_b, chunk - 1);
+}
+
+/*
 void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
 {
 	int		mid;
@@ -75,6 +139,15 @@ void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
 	while (((*head_b)->content >= mid) && ((*head_b)->chunk_index == chunk))
 		ft_pa(head_a, head_b, chunk);
 	
+	
+	if (ft_chunk_size(*head_b, chunk) == 2)
+	{
+		ft_solve_two_reverse(head_b);
+		ft_pa(head_a, head_b, chunk);
+		ft_pa(head_a, head_b, chunk);
+		ft_resolve_b(head_a, head_b, chunk - 1);
+	}
+	
 	//faire un if pour savoir si il reste des elements dun chunk a trie 
 	//et faire recursion dans ce cas chunk et pas chunk - 1;
 	
@@ -91,19 +164,31 @@ void ft_resolve_b(t_list **head_a, t_list **head_b, int chunk)
 	//	while ((*head_b)->content < mid)
 	//		ft_pa(head_a, head_b);
 	//}
-	//ft_resolve_b(head_a, head_b, chunk - 1);
+	ft_resolve_b(head_a, head_b, chunk - 1);
 }
-
-int ft_all_below_mid(t_list *head, int mid)
+*/
+int ft_all_below_mid(t_list *head, int mid, int chunk)
 {
 	while (head)
 	{
-		if (head->content < mid)
+		if (head->content < mid && (head)->chunk_index == chunk)
 			return (0);
 		head = head->next;
 	}
 	return (1);
 }
+
+int ft_all_above_mid(t_list *head, int mid, int chunk)
+{
+	while (head)
+	{
+		if (head->content >= mid && (head)->chunk_index == chunk)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
 
 int ft_check_chunk_max(t_list *head)
 {
