@@ -35,4 +35,5 @@ void	ft_pa(t_list **head_a, t_list **head_b, int chunk)
 	(*head_b) = NULL;
 	if (ft_lstsize(*head_b) <= 1)
 		*head_b = temp;
+	write(1, "pa\n", 3);
 }

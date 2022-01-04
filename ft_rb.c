@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_rb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 07:19:19 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/16 07:48:52 by gmary            ###   ########.fr       */
+/*   Created: 2022/01/04 14:50:05 by gmary             #+#    #+#             */
+/*   Updated: 2022/01/04 14:50:45 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_list **head)
+void	ft_rb(t_list **head)
 {
-
 	t_list	*temp;
-	t_list	*forward;
-
-	//check si condi ok ou pas
-	if(!*head || ft_lstsize(*head) == 1)
+	t_list	*new_head;
+	t_list	*change;
+	
+	if (ft_lstsize(*head) == 1)
 		return ;
-	temp = *head;
-	forward = temp;
-	forward = forward->next;
-	temp->next = forward->next;
-	forward->next = temp;
-	*head = forward;
-	write(1, "sa\n", 3);
+	temp = ft_lstlast(*head);
+	new_head = (*head)->next;
+	change = *head;
+	temp->next = change;
+	change->next = NULL;
+	*head = new_head;
+	write(1, "rb\n", 3);
 }

@@ -33,6 +33,7 @@ void	ft_rra(t_list **head)
 	temp->next = *head;
 	before_last->next = NULL;
 	*head = temp;
+	write(1, "rra\n", 4);
 }
 
 /*

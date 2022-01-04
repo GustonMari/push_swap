@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:40:45 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/23 17:03:59 by gmary            ###   ########.fr       */
+/*   Updated: 2021/12/30 08:50:37 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,34 @@ int	ft_med(int *tab, int size)
 	//if (size % 2 == 0)
 	//	return (0);
 	//else
+	//if (size % 2 == 0)
 		return (tab[size / 2]);
+	//else
+	//	return (tab[(size + 1) / 2]);
 }
 
-int	ft_med_position(t_list **head)
+int	ft_med_position(t_list *head, int count)
 {
-	int	size;
+	//int	size;
 	int	*tab;
 	int	i;
 	int	mid;
 
 	i =0;
-	size = ft_lstsize(*head);
-	tab = malloc(sizeof(int) * size);
+	//size = ft_lstsize(*head);
+	tab = malloc(sizeof(int) * count);
 	if (!tab)
 		return (0);
-	while (i < size)
+	while (i < count)
 	{
-		tab[i] = (*head)->content;
-		(*head) = (*head)->next;
+		tab[i] = (head)->content;
+		(head) = (head)->next;
 		i++;
 	}
 	// faire quick sort
-	ft_quick_sort(tab, 0, size -1);
+	ft_quick_sort(tab, 0, count -1);
 	i = 0;
-	mid = ft_med(tab, size);
+	mid = ft_med(tab, count);
 	free(tab);
 	return (mid);
 }

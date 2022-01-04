@@ -26,4 +26,5 @@ void	ft_ra(t_list **head)
 	temp->next = change;
 	change->next = NULL;
 	*head = new_head;
+	write(1, "ra\n", 3);
 }

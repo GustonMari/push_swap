@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_sb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 07:19:19 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/16 07:48:52 by gmary            ###   ########.fr       */
+/*   Created: 2022/01/04 14:52:37 by gmary             #+#    #+#             */
+/*   Updated: 2022/01/04 14:53:21 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_list **head)
+void	ft_sb(t_list **head)
 {
 
 	t_list	*temp;
@@ -27,5 +27,5 @@ void	ft_sa(t_list **head)
 	temp->next = forward->next;
 	forward->next = temp;
 	*head = forward;
-	write(1, "sa\n", 3);
+	write(1, "sb\n", 3);
 }

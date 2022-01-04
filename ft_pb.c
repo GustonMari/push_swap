@@ -35,6 +35,7 @@ void	ft_pb(t_list **head_a, t_list **head_b, int chunk)
 	*head_a = NULL;
 	if (ft_lstsize(*head_a) != 1)
 		*head_a = temp;
+	write(1, "pb\n", 3);
 }
 /*
 void	ft_pb(t_list **head_a, t_list **head_b)
