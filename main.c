@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:02:36 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/04 14:47:42 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/04 15:24:09 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int ac, char **av)
 	else
 		ft_resolve_a(&head_a, &head_b, ft_lstsize(head_a));
 	temp1 = head_a;
-	//temp2 = head_b;
+	////temp2 = head_b;
 	printf("liste a\n");
 	while (head_a)
 	{
