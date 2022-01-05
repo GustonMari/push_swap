@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:19:19 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 09:22:09 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/05 16:33:02 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ void	ft_sa(t_list **head, t_operation **head_op)
 	forward->next = temp;
 	*head = forward;
 	ft_addback_operation(head_op, ft_create_new_operation("sa"));
-	write(1, "sa\n", 3);
 }
