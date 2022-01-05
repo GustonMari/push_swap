@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_print_result.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 07:19:19 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 09:22:09 by gmary            ###   ########.fr       */
+/*   Created: 2022/01/05 09:46:55 by gmary             #+#    #+#             */
+/*   Updated: 2022/01/05 10:11:14 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_list **head, t_operation **head_op)
+void	ft_putstr(char *str)
 {
+	int	i;
 
-	t_list	*temp;
-	t_list	*forward;
+	i = 0;
+	while(str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
 
-	//check si condi ok ou pas
-	if(!*head || ft_lstsize(*head) == 1)
-		return ;
-	temp = *head;
-	forward = temp;
-	forward = forward->next;
-	temp->next = forward->next;
-	forward->next = temp;
-	*head = forward;
-	ft_addback_operation(head_op, ft_create_new_operation("sa"));
-	write(1, "sa\n", 3);
+void	ft_print_result(t_operation **head_op)
+{
+	while (*head_op)
+	{
+		ft_putstr((*head_op)->operation);
+		write(1, "\n", 1);
+		*head_op = (*head_op)->next;
+	}
 }

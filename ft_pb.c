@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 09:33:50 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 10:51:50 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:20:38 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* ne marche pas lorsque la liste b est seulement dun content */
 
-void	ft_pb(t_list **head_a, t_list **head_b, int chunk)
+void	ft_pb(t_list **head_a, t_list **head_b, int chunk, t_operation **head_op)
 {
 	t_list	*temp;
 	t_list	*swap;
@@ -35,6 +35,7 @@ void	ft_pb(t_list **head_a, t_list **head_b, int chunk)
 	*head_a = NULL;
 	if (ft_lstsize(*head_a) != 1)
 		*head_a = temp;
+	ft_addback_operation(head_op, ft_create_new_operation("pb"));
 	write(1, "pb\n", 3);
 }
 /*

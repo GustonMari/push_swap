@@ -6,13 +6,13 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:46:42 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/16 10:08:36 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:22:15 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_ra(t_list **head)
+void	ft_ra(t_list **head, t_operation **head_op)
 {
 	t_list	*temp;
 	t_list	*new_head;
@@ -26,5 +26,6 @@ void	ft_ra(t_list **head)
 	temp->next = change;
 	change->next = NULL;
 	*head = new_head;
+	ft_addback_operation(head_op, ft_create_new_operation("ra"));
 	write(1, "ra\n", 3);
 }

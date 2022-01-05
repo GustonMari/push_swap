@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_operation_manager.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 07:19:19 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 09:22:09 by gmary            ###   ########.fr       */
+/*   Created: 2022/01/04 15:46:10 by gmary             #+#    #+#             */
+/*   Updated: 2022/01/05 10:45:53 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_list **head, t_operation **head_op)
+t_operation	*ft_create_new_operation(char *ope)
 {
+	t_operation	*new;
 
-	t_list	*temp;
-	t_list	*forward;
+	new = malloc(sizeof(t_operation));
+	if (!new)
+		return (NULL);
+	new->operation = ope;
+	new->next = NULL;
+	return (new);
+}
 
-	//check si condi ok ou pas
-	if(!*head || ft_lstsize(*head) == 1)
+void	ft_addback_operation(t_operation **alst, t_operation *new)
+{
+	t_operation	*temp;
+
+	if (!*alst)
+	{
+		//new->prev = NULL;
+		*alst = new;
 		return ;
-	temp = *head;
-	forward = temp;
-	forward = forward->next;
-	temp->next = forward->next;
-	forward->next = temp;
-	*head = forward;
-	ft_addback_operation(head_op, ft_create_new_operation("sa"));
-	write(1, "sa\n", 3);
+	}
+	temp = *alst;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
+	//new->prev = temp;
 }

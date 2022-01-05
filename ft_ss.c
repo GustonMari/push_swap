@@ -6,14 +6,14 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 09:28:45 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/16 09:31:14 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/05 09:24:36 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_ss(t_list **head_a, t_list **head_b)
+void	ft_ss(t_list **head_a, t_list **head_b, t_operation **head_op)
 {
-	ft_sa(head_a);
-	ft_sa(head_b);
+	ft_sa(head_a, head_op);
+	ft_sa(head_b, head_op);
 }
