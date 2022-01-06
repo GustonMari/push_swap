@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 05:39:25 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/06 10:13:20 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/06 17:36:15 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ int	ft_is_operation(char *s1, char *s2)
 	if (!ft_strcmp(s1, "pa") && !ft_strcmp(s2, "pb"))
 		return (1);
 	if (!ft_strcmp(s1, "pb") && !ft_strcmp(s2, "pa"))
+		return (1);
+	if (!ft_strcmp(s1, "ss") && !ft_strcmp(s2, "ss"))
+		return (1);
+	if (!ft_strcmp(s1, "rr") && !ft_strcmp(s2, "rrr"))
+		return (1);
+	if (!ft_strcmp(s1, "rrr") && !ft_strcmp(s2, "rr"))
 		return (1);
 	return (0);
 }
@@ -88,26 +94,21 @@ void	ft_del_two_op_and_add(t_operation **head_op)
 	free(t);
 }
 
-
-
-#include <stdio.h>
-
 void	ft_first_epuration(t_operation **head_op)
 {
-	t_operation	*next_elem;
+	t_operation	*n_elem;
 	t_operation	*begin;
 
 	begin = *head_op;
 	while (*head_op)
 	{
-		next_elem = (*head_op)->next;
-		//  || !next_elem->next->next ???
-		if (!next_elem || !next_elem->next || !next_elem->next->operation)
+		n_elem = (*head_op)->next;
+		if (!n_elem || !n_elem->next || !n_elem->next->operation)
 			break ;
-		if (ft_is_operation(next_elem->operation, next_elem->next->operation))
-			ft_del_two_op(head_op);
-		else if (ft_compact(next_elem->operation, next_elem->next->operation))
+		if (ft_compact(n_elem->operation, n_elem->next->operation))
 			ft_del_two_op_and_add(head_op);
+		else if (ft_is_operation(n_elem->operation, n_elem->next->operation))
+			ft_del_two_op(head_op);
 		(*head_op) = (*head_op)->next;
 	}
 	*head_op = begin;
