@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:02:36 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 17:02:38 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/06 12:39:27 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@
 // ATTENTION BIEN TEST LE CAS OU 1 SEUL NB
 //ATTENTION LORSQUON MARQUE 02 et 2 aucune erreur n'est declare
 //CHEKC SI LE LSTCLEAR POUR LES OPERATIONS MARCHE BIEN
-// ./a.out 13 54 67  => afficher error ?????
+// ./a.out 378 847 84 94 => segfault sur le compact
+// ./a.out 267 13 500 800 operation non pas de sens ??
+// TEJ TOUS CE QUI EST CHUNK
+
+//continuer clean apres pb
 
 int	main(int ac, char **av)
 {
@@ -57,12 +61,12 @@ int	main(int ac, char **av)
 	temp1 = head_a;
 	////temp2 = head_b;
 	temp3 = head_op;
-	//printf("liste a\n");
-	//while (head_a)
-	//{
-	//	printf("%d | %d\n", (head_a->content), head_a->chunk_index);
-	//	head_a = head_a->next;
-	//}
+	printf("liste a\n");
+	while (head_a)
+	{
+		printf("%d | %d\n", (head_a->content), head_a->chunk_index);
+		head_a = head_a->next;
+	}
 	ft_first_epuration(&temp3);
 	ft_print_result(&head_op);
 	//while (head_op)

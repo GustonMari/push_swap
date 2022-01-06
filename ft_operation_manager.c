@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:46:10 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 10:45:53 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/05 18:16:13 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_addback_operation(t_operation **alst, t_operation *new)
 
 	if (!*alst)
 	{
-		//new->prev = NULL;
 		*alst = new;
 		return ;
 	}
@@ -38,5 +37,4 @@ void	ft_addback_operation(t_operation **alst, t_operation *new)
 	while (temp->next)
 		temp = temp->next;
 	temp->next = new;
-	//new->prev = temp;
 }

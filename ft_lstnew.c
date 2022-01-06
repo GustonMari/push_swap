@@ -6,13 +6,13 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:53:32 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 09:18:22 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/05 18:15:28 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew_modif(int	content)
+t_list	*ft_lstnew_modif(int content)
 {
 	t_list	*new;
 

@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 08:04:58 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 16:32:43 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/06 10:21:16 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ void	ft_rra(t_list **head, t_operation **head_op)
 	temp = ft_lstlast(*head);
 	size = ft_lstsize(*head);
 	before_last = *head;
-	while(i < size -1)
+	while (i < size -1)
 	{
-		//check si segfault possible pour size = 1; 
 		before_last = before_last->next;
 		i++;
 	}

@@ -6,15 +6,13 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 09:33:50 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 16:31:59 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/05 18:31:47 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* ne marche pas lorsque la liste b est seulement dun content */
-
-void	ft_pb(t_list **head_a, t_list **head_b, int chunk, t_operation **head_op)
+void	ft_pb(t_list **head_a, t_list **head_b, int chunk, t_operation **head_o)
 {
 	t_list	*temp;
 	t_list	*swap;
@@ -35,7 +33,7 @@ void	ft_pb(t_list **head_a, t_list **head_b, int chunk, t_operation **head_op)
 	*head_a = NULL;
 	if (ft_lstsize(*head_a) != 1)
 		*head_a = temp;
-	ft_addback_operation(head_op, ft_create_new_operation("pb"));
+	ft_addback_operation(head_o, ft_create_new_operation("pb"));
 }
 /*
 void	ft_pb(t_list **head_a, t_list **head_b)

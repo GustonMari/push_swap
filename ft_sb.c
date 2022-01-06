@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 14:52:37 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 16:32:53 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/06 12:05:19 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	ft_sb(t_list **head, t_operation **head_op)
 {
-
 	t_list	*temp;
 	t_list	*forward;
 
-	//check si condi ok ou pas
-	if(!*head || ft_lstsize(*head) == 1)
+	if (!*head || ft_lstsize(*head) == 1)
 		return ;
 	temp = *head;
 	forward = temp;

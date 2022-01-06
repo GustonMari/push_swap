@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 12:33:16 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 09:41:45 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/05 18:13:29 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ void	ft_lstclear_modif(t_list **lst)
 	}
 }
 
+/*
+	free(temp->operation);  ???
+*/
+
 void	ft_lstclear_modif_operation(t_operation **lst)
 {
 	t_operation	*temp;
@@ -34,7 +38,6 @@ void	ft_lstclear_modif_operation(t_operation **lst)
 	{
 		temp = *lst;
 		(*lst) = (*lst)->next;
-		//free(temp->operation);
 		free(temp);
 	}
 }
