@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 17:56:49 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/06 11:07:50 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/06 15:22:02 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,26 @@ int	ft_already_sort_chunk(t_list **head, int chunk)
 		}
 		min = min->next;
 		max = max->next;
+	}
+	return (0);
+}
+
+int	ft_double(t_list **head)
+{
+	t_list	*temp;
+	t_list	*duble;
+
+	temp = *head;
+	while (temp)
+	{
+		duble = temp->next;
+		while (duble)
+		{
+			if (duble->content == temp->content)
+				return (1);
+			duble = duble->next;
+		}
+		temp = temp->next;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 19:56:03 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/06 16:02:51 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void	ft_print_result(t_operation **head_op);
 */
 void		ft_sa(t_list **head, t_operation **head_op);
 void		ft_sb(t_list **head, t_operation **head_op);
-void		ft_rb(t_list **head, t_operation **head_op);
-void		ft_ra(t_list **head, t_operation **head_op);
+int			ft_rb(t_list **head, t_operation **head_op);
+int			ft_ra(t_list **head, t_operation **head_op);
 void		ft_rrb(t_list **head, t_operation **head_op);
 void		ft_rra(t_list **head, t_operation **head_op);
-void		ft_pa(t_list **head_a, t_list **head_b, int chunk, t_operation **head_op);
-void		ft_pb(t_list **head_a, t_list **head_b, int chunk, t_operation **head_op);
+void		ft_pa(t_list **head_a, t_list **head_b, t_operation **head_op);
+void		ft_pb(t_list **head_a, t_list **head_b, t_operation **head_op);
 void		ft_ss(t_list **head_a, t_list **head_b, t_operation **head_op);
 void		ft_rr(t_list **head_a, t_list **head_b, t_operation **head_op);
 void		ft_rrr(t_list **head_a, t_list **head_b, t_operation **head_op);
@@ -74,9 +74,9 @@ int			ft_check(char **av);
 int			ft_check_num(char **av);
 int			ft_check_double(char **av);
 int			ft_check_limits(long long nb);
-//peut etre a tej a voir
 int			ft_chunk_not_sort(t_list *head, int mid, int count);
 int			ft_chunk_not_sort_reverse(t_list *head, int mid, int count);
+int			ft_double(t_list **head);
 
 
 /*
