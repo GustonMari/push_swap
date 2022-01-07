@@ -6,27 +6,16 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:02:36 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/06 17:37:19 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/07 10:38:35 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-// check fuite de memoire lorsquon depasse le int min max !!!!
-// a voir pour la mediane lorsquon a une suite impair que faire ??
-
-//2 3 5 12 10 6 9 7 4 1 8 11 
-// ./a.out 216 709 746 594 273 18 596 720 942 915 262 151
-
-// ATTENTION BIEN TEST LE CAS OU 1 SEUL NB
-//ATTENTION LORSQUON MARQUE 02 et 2 aucune erreur n'est declare
-//CHEKC SI LE LSTCLEAR POUR LES OPERATIONS MARCHE BIEN
-// ./a.out 378 847 84 94 => segfault sur le compact
-// ./a.out 267 13 500 800 operation non pas de sens ??
-// TEJ TOUS CE QUI EST CHUNK
-
-//continuer clean apres pb
+void	ft_dispatch(t_list **head_a, t_list **head_b, t_operation **head_op)
+{
+	
+}
 
 int	main(int ac, char **av)
 {
@@ -34,7 +23,6 @@ int	main(int ac, char **av)
 	t_list		*head_b = NULL;
 	t_operation	*head_op = NULL;
 	t_list		*temp1;
-	//t_list	*temp2;
 	t_operation	*temp3;
 
 	if (ac == 1 || !ft_check(av))
@@ -56,19 +44,12 @@ int	main(int ac, char **av)
 	else
 		ft_resolve_a(&head_a, &head_b, ft_lstsize(head_a), &head_op);
 	temp1 = head_a;
-	////temp2 = head_b;
 	temp3 = head_op;
-	//printf("liste a\n");
-	//while (head_a)
-	//{
-	//	printf("%d | %d\n", (head_a->content), head_a->chunk_index);
-	//	head_a = head_a->next;
-	//}
 	ft_first_epuration(&temp3);
+	ft_second_epuration(&temp3);
 	ft_print_result(&head_op);
 	ft_lstclear_modif(&temp1);
 	ft_lstclear_modif_operation(&temp3);
-	//ft_lstclear_modif(&temp2);
 	return (0);
 }
 

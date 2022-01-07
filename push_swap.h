@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/06 16:02:51 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/06 18:20:16 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,8 @@ void	ft_addback_operation(t_operation **alst, t_operation *new);
 void ft_first_epuration(t_operation **head_op);
 void ft_del_two_op(t_operation **head_op);
 int ft_is_operation(char *s1, char *s2);
+void	ft_second_epuration(t_operation **head_op);
+
 
 
 #endif
