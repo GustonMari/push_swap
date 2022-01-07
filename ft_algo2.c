@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_algo2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:53:32 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/07 11:20:50 by gmary            ###   ########.fr       */
+/*   Created: 2022/01/07 10:56:44 by gmary             #+#    #+#             */
+/*   Updated: 2022/01/07 10:57:12 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew_modif(int content)
+void	ft_quick_sort(int *tab, int begin, int end)
 {
-	t_list	*new;
+	int	nb;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	if (begin >= end)
+		return ;
+	nb = ft_partition(tab, begin, end);
+	ft_quick_sort(tab, begin, nb - 1);
+	ft_quick_sort(tab, nb + 1, end);
 }
-
-/*
-t_list	*ft_lstnew_modif(int	content)
-{
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
-}
-*/

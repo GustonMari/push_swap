@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 09:33:50 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/06 14:56:56 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/07 11:22:35 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_pb(t_list **head_a, t_list **head_b, t_operation **head_o)
 	t_list	*temp;
 	t_list	*swap;
 
-	if(!*head_a)
+	if (!*head_a)
 		return ;
 	if (ft_lstsize(*head_a) != 1)
 	{
@@ -32,6 +32,7 @@ void	ft_pb(t_list **head_a, t_list **head_b, t_operation **head_o)
 		*head_a = temp;
 	ft_addback_operation(head_o, ft_create_new_operation("pb"));
 }
+
 /*
 void	ft_pb(t_list **head_a, t_list **head_b)
 {

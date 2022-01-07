@@ -6,13 +6,13 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:37:06 by gmary             #+#    #+#             */
-/*   Updated: 2021/12/22 16:50:59 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/07 11:26:52 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
@@ -21,11 +21,6 @@ int ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
-
-//void	ft_free(int nb)
-//{
-//	free(nb);
-//}
 
 int	ft_create_new(int ac, char **av, t_list **head)
 {
@@ -48,4 +43,3 @@ int	ft_create_new(int ac, char **av, t_list **head)
 	}
 	return (1);
 }
-

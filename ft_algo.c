@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:40:45 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/06 09:08:34 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/07 10:57:16 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,16 @@
 
 int	ft_med(int *tab, int size)
 {
-	//if (size % 2 == 0)
-	//	return (0);
-	//else
-	//if (size % 2 == 0)
-		return (tab[size / 2]);
-	//else
-	//	return (tab[(size + 1) / 2]);
+	return (tab[size / 2]);
 }
 
 int	ft_med_position(t_list *head, int count)
 {
-	//int	size;
 	int	*tab;
 	int	i;
 	int	mid;
 
-	i =0;
-	//size = ft_lstsize(*head);
+	i = 0;
 	tab = malloc(sizeof(int) * count);
 	if (!tab)
 		return (0);
@@ -44,7 +36,6 @@ int	ft_med_position(t_list *head, int count)
 		(head) = (head)->next;
 		i++;
 	}
-	// faire quick sort
 	ft_quick_sort(tab, 0, count -1);
 	i = 0;
 	mid = ft_med(tab, count);
@@ -54,15 +45,15 @@ int	ft_med_position(t_list *head, int count)
 
 int	ft_med_position_chunk(t_list **head, int chunk)
 {
-	int	size;
-	int	*tab;
-	int	i;
-	int	mid;
-	t_list	*temp = NULL;
+	int		size;
+	int		*tab;
+	int		i;
+	int		mid;
+	t_list	*temp;
 
+	temp = NULL;
 	temp = *head;
-	i =0;
-	//size = ft_lstsize(*head);
+	i = 0;
 	size = ft_chunk_size(temp, chunk);
 	tab = malloc(sizeof(int) * size);
 	if (!tab)
@@ -75,13 +66,11 @@ int	ft_med_position_chunk(t_list **head, int chunk)
 		i++;
 	}
 	ft_quick_sort(tab, 0, size -1);
-	i = 0;
 	mid = ft_med(tab, size);
 	free(tab);
 	return (mid);
 }
 
-// a check apres
 void	ft_swap_tab(int *tab, int a, int b)
 {
 	int	temp;
@@ -95,15 +84,13 @@ int	ft_partition(int *tab, int begin, int end)
 {
 	int	i;
 	int	j;
-	int pivot;
+	int	pivot;
 
 	pivot = tab[end];
 	i = begin - 1;
 	j = begin;
-
 	while (j < end)
 	{
-		//j++;
 		if (tab[j] <= pivot)
 		{
 			i++;
@@ -113,16 +100,4 @@ int	ft_partition(int *tab, int begin, int end)
 	}
 	ft_swap_tab(tab, i + 1, end);
 	return (i + 1);
-}
-
-void	ft_quick_sort(int *tab, int begin, int end)
-{
-	int	nb;
-
-	if (begin >= end)
-		return ;
-	nb = ft_partition(tab, begin, end);
-	ft_quick_sort(tab, begin, nb - 1);
-	ft_quick_sort(tab, nb + 1, end);
-
 }

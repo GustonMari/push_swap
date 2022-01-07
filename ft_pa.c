@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 08:57:28 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/06 14:33:41 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/07 11:22:09 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void	ft_pa(t_list **head_a, t_list **head_b, t_operation **head_op)
 {
 	t_list	*temp;
 	t_list	*swap;
-	// on a que ca comme securite ??
 
-	if(!*head_b)
+	if (!*head_b)
 		return ;
 	if (ft_lstsize(*head_b) != 1)
 	{

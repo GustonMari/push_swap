@@ -6,21 +6,39 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:06:26 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/07 10:22:12 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/07 11:20:07 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_del_three_add_two(t_operation **head_op)
+void	ptr(t_operation **h_o, t_operation *n1, t_operation *n2, t_operation *o)
 {
-	t_operation	*op1;
-	t_operation	*new1 = NULL;
-	t_operation	*new2 = NULL;
 	t_operation	*temp;
 	int			i;
 
 	i = 0;
+	temp = (*h_o)->next->next->next->next;
+	(*h_o)->next = n1;
+	n1->next = n2;
+	n2->next = temp;
+	while (i < 3)
+	{
+		temp = o->next;
+		free(o);
+		o = temp;
+		i++;
+	}
+}
+
+void	ft_del_three_add_two(t_operation **head_op)
+{
+	t_operation	*op1;
+	t_operation	*new1;
+	t_operation	*new2;
+
+	new1 = NULL;
+	new2 = NULL;
 	op1 = (*head_op)->next;
 	if (!op1 || !(op1->next) || !(op1->next->next))
 		return ;
@@ -34,20 +52,10 @@ void	ft_del_three_add_two(t_operation **head_op)
 		new1 = ft_create_new_operation("sb");
 		new2 = ft_create_new_operation("pa");
 	}
-	temp = (*head_op)->next->next->next->next;
-	(*head_op)->next = new1;
-	new1->next = new2;
-	new2->next = temp;
-	while (i < 3)
-	{
-		temp = op1->next;
-		free(op1);
-		op1 = temp;
-		i++;
-	}
+	ptr(head_op, new1, new2, op1);
 }
 
-int	ft_compact_2(char *s1, char *s2, char *s3)
+int	ft_com(char *s1, char *s2, char *s3)
 {
 	if (!ft_strcmp(s1, "ra") && !ft_strcmp(s2, "pb") && !ft_strcmp(s3, "rra"))
 		return (1);
@@ -58,16 +66,16 @@ int	ft_compact_2(char *s1, char *s2, char *s3)
 
 void	ft_second_epuration(t_operation **head_op)
 {
-	t_operation	*n_elem;
+	t_operation	*n;
 	t_operation	*begin;
 
 	begin = *head_op;
 	while (*head_op)
 	{
-		n_elem = (*head_op)->next;
-		if (!n_elem || !n_elem->next || !n_elem->next->next)
+		n = (*head_op)->next;
+		if (!n || !n->next || !n->next->next)
 			break ;
-		if (ft_compact_2(n_elem->operation, n_elem->next->operation, n_elem->next->next->operation))
+		if (ft_com(n->operation, n->next->operation, n->next->next->operation))
 			ft_del_three_add_two(head_op);
 		(*head_op) = (*head_op)->next;
 	}

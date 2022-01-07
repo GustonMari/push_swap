@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 11:51:09 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/06 09:09:12 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/07 11:01:57 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_isspace(char c)
 
 long long	ft_atoi(const char *str)
 {
-	int		i;
+	int			i;
 	long long	nb;
 	long long	sign;
 
