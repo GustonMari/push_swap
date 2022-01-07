@@ -36,23 +36,23 @@ SRC = ft_algo.c \
 	main.c \
 	resolve.c \
 	resolve2.c \
-	utils.c 
+	utils.c
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ)
+	 $(CC) -o $(NAME) $(OBJ) -I $(INCLUDES)
 
-.o: .c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
+%.o: %.c $(INCLUDES)
+	$(CC) $(CFLAGS) -c $< 
 
-clean: $(OBJ)
-	rm -f $(OBJ)
+clean:
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
