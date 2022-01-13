@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 09:46:55 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/13 09:20:05 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/13 09:27:45 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putstr(char *str)
 void	ft_print_result(t_operation **head_op)
 {
 	t_operation	*temp;
-	
+
 	while (*head_op)
 	{
 		temp = *head_op;
