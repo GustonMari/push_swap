@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:39 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/07 11:37:52 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/24 10:37:16 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ typedef struct s_operation
 	 libft  && utils
 */
 
+int			ft_clear_tab(char	**tab);
+int			ft_wordcount(char const *s, char c);
+char		**ft_split(char *s, char c);
 void		ft_lstadd_back(t_list **alst, t_list *new);
 void		ft_lstadd_front(t_list **alst, t_list *new);
-void		ft_lstclear_modif(t_list **lst);
+int			ft_lstclear_modif(t_list **lst);
 void		ft_lstclear_modif_operation(t_operation **lst);
 void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));

@@ -36,7 +36,8 @@ SRC = ft_algo.c \
 	main.c \
 	resolve.c \
 	resolve2.c \
-	utils.c
+	utils.c \
+	ft_split.c
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 

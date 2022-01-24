@@ -6,13 +6,13 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 12:33:16 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 18:13:29 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/24 10:36:20 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstclear_modif(t_list **lst)
+int	ft_lstclear_modif(t_list **lst)
 {
 	t_list	*temp;
 
@@ -24,6 +24,7 @@ void	ft_lstclear_modif(t_list **lst)
 		temp->chunk_index = 0;
 		free(temp);
 	}
+	return (0);
 }
 
 /*

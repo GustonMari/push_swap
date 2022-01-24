@@ -6,7 +6,7 @@
 /*   By: gmary <gmary@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:15:00 by gmary             #+#    #+#             */
-/*   Updated: 2022/01/05 17:57:40 by gmary            ###   ########.fr       */
+/*   Updated: 2022/01/24 10:38:18 by gmary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 int	ft_check(char **av)
 {
 	if (!ft_check_num(av))
+	{
 		return (0);
+	}
 	if (!ft_check_double(av))
+	{
 		return (0);
+	}
 	return (1);
 }
 
@@ -63,7 +67,9 @@ int	ft_check_num(char **av)
 		while (av[j][i])
 		{
 			if (av[j][i] != '-' && !ft_isdigit(av[j][i]))
+			{
 				return (0);
+			}
 			i++;
 		}
 		j++;
